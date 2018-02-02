@@ -1,13 +1,10 @@
 ---
 applications:
 - name: rabbitmq-spring
-  memory: 512M
+  memory: 1024M
   instances: 1
-  host: rabbitmq-spring-${random-word}
+  host: rabbitmq-spring-jbray
   path: target/rabbitmq-spring-1.0-SNAPSHOT.war
+  buildpack: https://github.com/cloudfoundry/java-buildpack
   services:
-    rabbit-sample:
-      label: cloudamqp
-      provider: cloudamqp
-      version: n/a
-      plan: lemur
+  - spring-rabbitmq
